@@ -139,7 +139,6 @@ Model listesi JSON olarak dönmeli.
 3. Model adı örnekleri:  
    - OpenAI: `gpt-4o-mini`  
    - Anthropic: `claude-3-5-haiku-20241022`  
-4. **Kaydet** — anahtar yalnızca yerel `ai_settings.json` dosyasında saklanır; repoya koymayın.
 
 ### API anahtarı olmadan neler çalışır?
 
@@ -173,7 +172,6 @@ requirements.txt        # pip bağımlılıkları
 ## Güvenlik notu
 
 - **Kilit Aç** yalnızca **bilinen şifre** ile çalışır; şifre kırma yoktur.  
-- API anahtarlarını paylaşmayın; `.env` veya `ai_settings.json` dosyasını git’e eklemeyin.
 
 ---
 
