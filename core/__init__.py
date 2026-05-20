@@ -1,0 +1,1 @@
+"""PyMuPDF (fitz) çekirdek işlemleri."""

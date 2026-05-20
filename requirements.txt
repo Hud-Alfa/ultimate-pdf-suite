@@ -1,0 +1,33 @@
+# Ultimate PDF Suite — Python bağımlılıkları
+# Kurulum: pip install -r requirements.txt
+# Harici yazılım (README.md): LibreOffice, wkhtmltopdf, Tesseract, Ollama
+
+# Arayüz ve PDF çekirdek
+PyQt6>=6.6.0
+PyMuPDF>=1.24.0
+Pillow>=10.0.0
+
+# Windows tarayıcı (Tara)
+comtypes>=1.2.0
+
+# PDF'e dönüştür
+img2pdf>=0.5.0
+pdfkit>=1.0.0
+
+# PDF'den dönüştür
+pdf2docx>=0.5.6
+pdfplumber>=0.11.0
+openpyxl>=3.1.0
+python-pptx>=0.6.23
+
+# OCR
+pytesseract>=0.3.10
+ocrmypdf>=15.0.0
+
+# Akıllı Araçlar — bulut API (OpenAI / Anthropic) veya yerel Ollama (HTTP)
+# Ollama ayrı kurulur: https://ollama.com — README.md bölümüne bakın
+openai>=1.30.0
+anthropic>=0.25.0
+langchain-community>=0.2.0
+langchain-text-splitters>=0.2.0
+faiss-cpu>=1.7.4
