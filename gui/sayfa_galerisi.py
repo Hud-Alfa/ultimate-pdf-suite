@@ -8,7 +8,7 @@ from typing import List, Optional
 
 import fitz
 from PyQt6.QtCore import Qt, QThread, pyqtSignal, QSize
-from PyQt6.QtGui import QColor, QImage, QPixmap
+from PyQt6.QtGui import QColor, QIcon, QImage, QPixmap
 from PyQt6.QtWidgets import (
     QAbstractItemView,
     QFrame,
@@ -28,7 +28,7 @@ from core.sayfa_model import SayfaRef, metne_cevir, metinden_sec, plana_cevir
 @dataclass
 class SayfaOgesiVeri:
     ref: SayfaRef
-    pixmap: QPixmap
+    image: QImage  # iş parçacığından güvenle aktarılır; QPixmap yalnızca GUI'de
     baslik: str
 
 
@@ -73,12 +73,11 @@ class GaleriWorker(QThread):
                         pix.stride,
                         QImage.Format.Format_RGB888,
                     )
-                    pm = QPixmap.fromImage(img.copy())
                     ref = SayfaRef(dosya=yol, sayfa=i)
                     ogeler.append(
                         SayfaOgesiVeri(
                             ref=ref,
-                            pixmap=pm,
+                            image=img.copy(),
                             baslik=f"{ad}\ns.{i + 1}",
                         )
                     )
@@ -285,7 +284,8 @@ class SayfaGalerisiPaneli(QFrame):
         item = QListWidgetItem()
         item.setData(ROL_REF, veri.ref)
         item.setData(ROL_SECILI, secili)
-        item.setIcon(veri.pixmap)
+        pm = QPixmap.fromImage(veri.image)
+        item.setIcon(QIcon(pm))
         item.setText(veri.baslik)
         item.setSizeHint(QSize(130, 185))
         item.setToolTip(veri.ref.etiket())
